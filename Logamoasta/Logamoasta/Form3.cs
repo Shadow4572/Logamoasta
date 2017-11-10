@@ -19,6 +19,8 @@ namespace Logamoasta
             InitializeComponent();
         }
 
+        public int index;
+
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -87,11 +89,12 @@ namespace Logamoasta
             Environment.Exit(0);
         }
 
+        MySqlCommand cmd = new MySqlCommand("SELECT * FROM Lagerbestand", Form1.con);
+
         private void Form3_Load(object sender, EventArgs e)
         {
             lst_lagerbestand.Items.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Lagerbestand", Form1.con);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
@@ -111,17 +114,68 @@ namespace Logamoasta
             {
                 if (txt_bezeichnung.Text.Trim() == "" || txt_ekpreis.Text.Trim() == "" || txt_vkpreis.Text.Trim() == "" || num_anzahl.Value.ToString().Trim() == "")
                 {
-                    MessageBox.Show("Passt nid");
+                    MessageBox.Show("Passt nid weil laar");
                 }
                 else
                 {
-                    if (txt_ekpreis.Text.Contains(",") || txt_vkpreis.Text.Contains(","))
+                    try
                     {
-                        MessageBox.Show("Passt nid weil ,");
+                        Convert.ToDouble(txt_ekpreis.Text);
+                        Convert.ToDouble(txt_vkpreis.Text);
+
+                        if (txt_ekpreis.Text.Contains(",") || txt_vkpreis.Text.Contains(","))
+                        {
+                            MessageBox.Show("Passt nid weil ,");
+                        }
+                        else
+                        {
+                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO Lagerbestand (Bezeichnung, Einkaufspreis, Verkaufspreis, Anzahl) VALUES ('" + txt_bezeichnung.Text + "', '" + txt_ekpreis.Text + "', '" + txt_vkpreis.Text + "', '" + num_anzahl.Value.ToString() + "')", Form1.con);
+
+                            MySqlDataReader reader2 = cmd.ExecuteReader();
+                            List<string> Bezeichnungen = new List<string>();
+                            if (reader2.HasRows)
+                            {
+                                while (reader2.Read())
+                                {
+                                    Bezeichnungen.Add(reader2.GetValue(1).ToString());
+                                }
+                            }
+                            reader2.Close();
+
+                            if (Bezeichnungen.Contains(txt_bezeichnung.Text))
+                            {
+                                MessageBox.Show("Passt nid, weil scho vorhondn");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    MySqlDataReader reader3 = cmd.ExecuteReader();
+                                    if (reader3.HasRows)
+                                    {
+                                        while (reader3.Read())
+                                        {
+                                            index = Convert.ToInt32(reader3.GetValue(0)) + 1;
+                                            
+                                        }
+                                        lst_lagerbestand.Items.Add(index.ToString() + "\t" + txt_bezeichnung.Text + "\t\t" + txt_ekpreis.Text + "\t\t" + txt_vkpreis.Text + "\t\t" + num_anzahl.Value.ToString());
+                                    }
+                                    reader3.Close();
+                                    cmd2.ExecuteNonQuery();                                   
+
+                                    MessageBox.Show("Passt");
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.ToString());
+                                }
+                            }
+                        } 
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Passt");
+                        //MessageBox.Show("Passt nid weil nid numeric.");
+                        MessageBox.Show(ex.ToString());
                     }
                 }
             }
