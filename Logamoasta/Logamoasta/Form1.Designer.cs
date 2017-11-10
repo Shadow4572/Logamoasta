@@ -92,7 +92,7 @@
             this.btn_anmelden.AutoSize = true;
             this.btn_anmelden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_anmelden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_anmelden.Location = new System.Drawing.Point(367, 121);
+            this.btn_anmelden.Location = new System.Drawing.Point(367, 12);
             this.btn_anmelden.Name = "btn_anmelden";
             this.btn_anmelden.Size = new System.Drawing.Size(93, 32);
             this.btn_anmelden.TabIndex = 5;
