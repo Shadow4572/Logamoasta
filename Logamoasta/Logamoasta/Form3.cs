@@ -150,18 +150,19 @@ namespace Logamoasta
                             {
                                 try
                                 {
+                                    cmd2.ExecuteNonQuery();
+
                                     MySqlDataReader reader3 = cmd.ExecuteReader();
                                     if (reader3.HasRows)
                                     {
                                         while (reader3.Read())
                                         {
-                                            index = Convert.ToInt32(reader3.GetValue(0)) + 1;
+                                            index = Convert.ToInt32(reader3.GetValue(0));
                                             
                                         }
                                         lst_lagerbestand.Items.Add(index.ToString() + "\t" + txt_bezeichnung.Text + "\t\t" + txt_ekpreis.Text + "\t\t" + txt_vkpreis.Text + "\t\t" + num_anzahl.Value.ToString());
                                     }
-                                    reader3.Close();
-                                    cmd2.ExecuteNonQuery();                                   
+                                    reader3.Close();                                  
 
                                     MessageBox.Show("Passt");
                                 }
