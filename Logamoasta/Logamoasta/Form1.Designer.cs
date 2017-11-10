@@ -52,7 +52,7 @@
             // 
             this.txt_benutzername.Location = new System.Drawing.Point(149, 69);
             this.txt_benutzername.Name = "txt_benutzername";
-            this.txt_benutzername.Size = new System.Drawing.Size(311, 20);
+            this.txt_benutzername.Size = new System.Drawing.Size(305, 20);
             this.txt_benutzername.TabIndex = 1;
             this.txt_benutzername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_benutzername_KeyDown);
             // 
