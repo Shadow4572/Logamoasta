@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Logamoasta
 {
@@ -24,7 +26,7 @@ namespace Logamoasta
 
         private void rbtn_maanlegen_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbtn_maanlegen.Checked)
+            if (rbtn_maanlegen.Checked)
             {
                 txt_benutzername.Visible = true;
                 txt_gruppe.Visible = true;
@@ -36,9 +38,11 @@ namespace Logamoasta
                 cmb_bid.Visible = false;
                 cmb_gruppe.Visible = false;
                 lbl_bid.Visible = false;
+
+
             }
 
-            if(rbtn_mabearbeiten.Checked)
+            if (rbtn_mabearbeiten.Checked)
             {
                 cmb_benutzername.Visible = true;
                 cmb_bid.Visible = true;
@@ -66,7 +70,7 @@ namespace Logamoasta
                 lbl_passwort.Visible = false;
             }
 
-            if(rbtn_masuchen.Checked)
+            if (rbtn_masuchen.Checked)
             {
                 cmb_bid.Visible = true;
                 cmb_benutzername.Visible = true;
@@ -264,5 +268,49 @@ namespace Logamoasta
             Hide();
             f2.ShowDialog();
         }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            mitarbeiter_lst.Items.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Mitarbeiter", Form1.con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                mitarbeiter_lst.Items.Add("BID\tBenutzername\tGruppe");
+                while (reader.Read())
+                {
+                    mitarbeiter_lst.Items.Add(reader.GetValue(0).ToString() + "\t" + reader.GetValue(1).ToString() + "\t" + reader.GetValue(3).ToString());
+                }
+            }
+            reader.Close();
+        }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            if (rbtn_maanlegen.Checked)
+            {
+                try
+                {
+                    MySqlCommand cmd2 = new MySqlCommand("'INSERT INTO Mitarbeiter (Benutzername, Passwort, Gruppe) VALUE ('" + txt_benutzername.Text + "', '" + txt_gruppe.Text + "', '" + txt_passwort.Text + "')'", Form1.con);
+
+                        if (txt_benutzername.Text.Trim() == "" || txt_gruppe.Text.Trim() == "" || txt_passwort.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Passt nid");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Passt");
+                        }
+                    }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hart Feed");
+                   
+                }                
+            }
+        }
     }
 }
+

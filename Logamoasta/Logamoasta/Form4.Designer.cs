@@ -47,7 +47,7 @@
             this.cmb_bid = new System.Windows.Forms.ComboBox();
             this.cmb_benutzername = new System.Windows.Forms.ComboBox();
             this.cmb_gruppe = new System.Windows.Forms.ComboBox();
-            this.lst_mitarbeiter = new System.Windows.Forms.ListBox();
+            this.mitarbeiter_lst = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,6 +136,7 @@
             this.btn_ok.TabIndex = 41;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // lbl_passwort
             // 
@@ -237,28 +238,25 @@
             // cmb_gruppe
             // 
             this.cmb_gruppe.FormattingEnabled = true;
-            this.cmb_gruppe.Location = new System.Drawing.Point(241, 128);
+            this.cmb_gruppe.Location = new System.Drawing.Point(241, 129);
             this.cmb_gruppe.Name = "cmb_gruppe";
             this.cmb_gruppe.Size = new System.Drawing.Size(311, 21);
             this.cmb_gruppe.TabIndex = 50;
             this.cmb_gruppe.Visible = false;
             // 
-            // lst_mitarbeiter
+            // mitarbeiter_lst
             // 
-            this.lst_mitarbeiter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
-            this.lst_mitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lst_mitarbeiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lst_mitarbeiter.FormattingEnabled = true;
-            this.lst_mitarbeiter.ItemHeight = 24;
-            this.lst_mitarbeiter.Items.AddRange(new object[] {
-            "BID\tBenutzername\tGruppe",
-            "1\tm.riedmann\tMoasta",
-            "2\ta.schoenacher\tMoasta",
-            "3\tg.bier\t\tVerkauf"});
-            this.lst_mitarbeiter.Location = new System.Drawing.Point(161, 287);
-            this.lst_mitarbeiter.Name = "lst_mitarbeiter";
-            this.lst_mitarbeiter.Size = new System.Drawing.Size(385, 240);
-            this.lst_mitarbeiter.TabIndex = 51;
+            this.mitarbeiter_lst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
+            this.mitarbeiter_lst.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mitarbeiter_lst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mitarbeiter_lst.FormattingEnabled = true;
+            this.mitarbeiter_lst.ItemHeight = 20;
+            this.mitarbeiter_lst.Items.AddRange(new object[] {
+            "BID\tBenutername\tGruppe"});
+            this.mitarbeiter_lst.Location = new System.Drawing.Point(233, 274);
+            this.mitarbeiter_lst.Name = "mitarbeiter_lst";
+            this.mitarbeiter_lst.Size = new System.Drawing.Size(319, 280);
+            this.mitarbeiter_lst.TabIndex = 51;
             // 
             // Form4
             // 
@@ -266,7 +264,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(707, 580);
-            this.Controls.Add(this.lst_mitarbeiter);
+            this.Controls.Add(this.mitarbeiter_lst);
             this.Controls.Add(this.cmb_gruppe);
             this.Controls.Add(this.cmb_benutzername);
             this.Controls.Add(this.cmb_bid);
@@ -289,6 +287,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mitarbeiter";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -315,6 +314,6 @@
         private System.Windows.Forms.ComboBox cmb_bid;
         private System.Windows.Forms.ComboBox cmb_benutzername;
         private System.Windows.Forms.ComboBox cmb_gruppe;
-        private System.Windows.Forms.ListBox lst_mitarbeiter;
+        private System.Windows.Forms.ListBox mitarbeiter_lst;
     }
 }
