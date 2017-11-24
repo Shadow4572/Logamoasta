@@ -42,7 +42,6 @@
             this.lbl_bid = new System.Windows.Forms.Label();
             this.lbl_mitarbeiter = new System.Windows.Forms.Label();
             this.txt_benutzername = new System.Windows.Forms.TextBox();
-            this.txt_gruppe = new System.Windows.Forms.TextBox();
             this.txt_passwort = new System.Windows.Forms.TextBox();
             this.cmb_bid = new System.Windows.Forms.ComboBox();
             this.cmb_benutzername = new System.Windows.Forms.ComboBox();
@@ -201,14 +200,6 @@
             this.txt_benutzername.TabIndex = 45;
             this.txt_benutzername.Visible = false;
             // 
-            // txt_gruppe
-            // 
-            this.txt_gruppe.Location = new System.Drawing.Point(241, 129);
-            this.txt_gruppe.Name = "txt_gruppe";
-            this.txt_gruppe.Size = new System.Drawing.Size(311, 20);
-            this.txt_gruppe.TabIndex = 46;
-            this.txt_gruppe.Visible = false;
-            // 
             // txt_passwort
             // 
             this.txt_passwort.Location = new System.Drawing.Point(241, 155);
@@ -238,7 +229,12 @@
             // cmb_gruppe
             // 
             this.cmb_gruppe.FormattingEnabled = true;
-            this.cmb_gruppe.Location = new System.Drawing.Point(241, 129);
+            this.cmb_gruppe.Items.AddRange(new object[] {
+            "Einkauf",
+            "Verkauf",
+            "Lagerverwaltung",
+            "Moasta"});
+            this.cmb_gruppe.Location = new System.Drawing.Point(241, 128);
             this.cmb_gruppe.Name = "cmb_gruppe";
             this.cmb_gruppe.Size = new System.Drawing.Size(311, 21);
             this.cmb_gruppe.TabIndex = 50;
@@ -252,11 +248,11 @@
             this.mitarbeiter_lst.FormattingEnabled = true;
             this.mitarbeiter_lst.ItemHeight = 20;
             this.mitarbeiter_lst.Items.AddRange(new object[] {
-            "BID\tBenutername\tGruppe"});
-            this.mitarbeiter_lst.Location = new System.Drawing.Point(233, 274);
+            "BID\tBenutzername\tGruppe"});
+            this.mitarbeiter_lst.Location = new System.Drawing.Point(194, 265);
             this.mitarbeiter_lst.Name = "mitarbeiter_lst";
             this.mitarbeiter_lst.Size = new System.Drawing.Size(319, 280);
-            this.mitarbeiter_lst.TabIndex = 51;
+            this.mitarbeiter_lst.TabIndex = 52;
             // 
             // Form4
             // 
@@ -269,7 +265,6 @@
             this.Controls.Add(this.cmb_benutzername);
             this.Controls.Add(this.cmb_bid);
             this.Controls.Add(this.txt_passwort);
-            this.Controls.Add(this.txt_gruppe);
             this.Controls.Add(this.txt_benutzername);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_zurueck);
@@ -309,7 +304,6 @@
         private System.Windows.Forms.RadioButton rbtn_masuchen;
         private System.Windows.Forms.RadioButton rbtn_maloeschen;
         private System.Windows.Forms.TextBox txt_benutzername;
-        private System.Windows.Forms.TextBox txt_gruppe;
         private System.Windows.Forms.TextBox txt_passwort;
         private System.Windows.Forms.ComboBox cmb_bid;
         private System.Windows.Forms.ComboBox cmb_benutzername;
