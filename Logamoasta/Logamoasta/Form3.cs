@@ -19,7 +19,8 @@ namespace Logamoasta
             InitializeComponent();
         }
 
-        public int index;
+        //public int index;
+        LogamoastaEntities entity = new LogamoastaEntities();
 
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
@@ -89,11 +90,11 @@ namespace Logamoasta
             Environment.Exit(0);
         }
 
-        MySqlCommand cmd = new MySqlCommand("SELECT * FROM Lagerbestand", Form1.con);
+        //MySqlCommand cmd = new MySqlCommand("SELECT * FROM Lagerbestand", Form1.con);
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            lst_lagerbestand.Items.Clear();
+            /*lst_lagerbestand.Items.Clear();
 
             MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -105,11 +106,48 @@ namespace Logamoasta
                     lst_lagerbestand.Items.Add(reader.GetValue(0).ToString() + "\t" + reader.GetValue(1).ToString() + "\t\t" + reader.GetValue(2).ToString() + "\t\t" + reader.GetValue(3).ToString() + "\t\t" + reader.GetValue(4).ToString());
                 }
             }
-            reader.Close();
+            reader.Close();*/
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            var lagerbestandQuery = from Lagerbestand in entity.Lagerbestand select Lagerbestand;
+
+            List<Lagerbestand> lagerbestandList = lagerbestandQuery.ToList();
+
+            dat_lagerbestand.DataSource = lagerbestandList;
+        }
+
+        private int CheckID()
+        {
+            for (int i = 1; true; i++)
+            {
+                //goes on until it finds a ID which has not been used
+                if (entity.Lagerbestand.Where(x => x.ArtikelNr == i).FirstOrDefault() == null)
+                {
+                    return i;
+                }
+            }
+        }
+
+        private bool CheckBezeichnung()
+        {
+            foreach (Lagerbestand lb in entity.Lagerbestand)
+            {
+                if (lb.Bezeichnung == txt_bezeichnung.Text)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
+            Lagerbestand bestand = new Lagerbestand();
+
             if (rbtn_neuerartikel.Checked)
             {
                 if (txt_bezeichnung.Text.Trim() == "" || txt_ekpreis.Text.Trim() == "" || txt_vkpreis.Text.Trim() == "" || num_anzahl.Value.ToString().Trim() == "")
@@ -120,63 +158,76 @@ namespace Logamoasta
                 {
                     try
                     {
-                        Convert.ToDouble(txt_ekpreis.Text);
-                        Convert.ToDouble(txt_vkpreis.Text);
+                        Convert.ToDecimal(txt_ekpreis.Text);
+                        Convert.ToDecimal(txt_vkpreis.Text);
 
-                        if (txt_ekpreis.Text.Contains(",") || txt_vkpreis.Text.Contains(","))
+                        /*MySqlCommand cmd2 = new MySqlCommand("INSERT INTO Lagerbestand (Bezeichnung, Einkaufspreis, Verkaufspreis, Anzahl) VALUES ('" + txt_bezeichnung.Text + "', '" + txt_ekpreis.Text + "', '" + txt_vkpreis.Text + "', '" + num_anzahl.Value.ToString() + "')", Form1.con);
+
+                        MySqlDataReader reader2 = cmd.ExecuteReader();
+                        List<string> Bezeichnungen = new List<string>();
+                        if (reader2.HasRows)
                         {
-                            MessageBox.Show("Passt nid weil ,");
+                            while (reader2.Read())
+                            {
+                                Bezeichnungen.Add(reader2.GetValue(1).ToString());
+                            }
+                        }
+                        reader2.Close();*/
+
+                        if (CheckBezeichnung()) //Bezeichnungen.Contains(txt_bezeichnung.Text)
+                        {
+                            MessageBox.Show("Passt nid, weil scho vorhondn");
                         }
                         else
                         {
-                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO Lagerbestand (Bezeichnung, Einkaufspreis, Verkaufspreis, Anzahl) VALUES ('" + txt_bezeichnung.Text + "', '" + txt_ekpreis.Text + "', '" + txt_vkpreis.Text + "', '" + num_anzahl.Value.ToString() + "')", Form1.con);
+                            try
+                            {
+                                //cmd2.ExecuteNonQuery();
 
-                            MySqlDataReader reader2 = cmd.ExecuteReader();
-                            List<string> Bezeichnungen = new List<string>();
-                            if (reader2.HasRows)
-                            {
-                                while (reader2.Read())
-                                {
-                                    Bezeichnungen.Add(reader2.GetValue(1).ToString());
-                                }
-                            }
-                            reader2.Close();
+                                bestand.ArtikelNr = CheckID();
+                                bestand.Bezeichnung = txt_bezeichnung.Text;
+                                bestand.Einkaufspreis = Convert.ToDecimal(txt_ekpreis.Text);
+                                bestand.Verkaufspreis = Convert.ToDecimal(txt_vkpreis.Text);
+                                bestand.Anzahl = Convert.ToInt32(num_anzahl.Value);
 
-                            if (Bezeichnungen.Contains(txt_bezeichnung.Text))
-                            {
-                                MessageBox.Show("Passt nid, weil scho vorhondn");
-                            }
-                            else
-                            {
+                                entity.Lagerbestand.Add(bestand);
+
                                 try
                                 {
-                                    cmd2.ExecuteNonQuery();
-
-                                    MySqlDataReader reader3 = cmd.ExecuteReader();
-                                    if (reader3.HasRows)
-                                    {
-                                        while (reader3.Read())
-                                        {
-                                            index = Convert.ToInt32(reader3.GetValue(0));
-                                            
-                                        }
-                                        lst_lagerbestand.Items.Add(index.ToString() + "\t" + txt_bezeichnung.Text + "\t\t" + txt_ekpreis.Text + "\t\t" + txt_vkpreis.Text + "\t\t" + num_anzahl.Value.ToString());
-                                    }
-                                    reader3.Close();                                  
-
-                                    MessageBox.Show("Passt");
+                                    entity.SaveChanges();
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
-                                    MessageBox.Show(ex.ToString());
+
+                                    throw;
                                 }
+
+                                LoadData();
+
+                                /*MySqlDataReader reader3 = cmd.ExecuteReader();
+                                if (reader3.HasRows)
+                                {
+                                    while (reader3.Read())
+                                    {
+                                        index = Convert.ToInt32(reader3.GetValue(0));
+                                        
+                                    }
+                                    lst_lagerbestand.Items.Add(index.ToString() + "\t" + txt_bezeichnung.Text + "\t\t" + txt_ekpreis.Text + "\t\t" + txt_vkpreis.Text + "\t\t" + num_anzahl.Value.ToString());
+                                }
+                                reader3.Close();*/                                
+
+                                MessageBox.Show("Passt");
                             }
-                        } 
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show("Passt nid weil nid numeric.");
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show("Passt nid weil nid numeric. Schau weng an .");
+                        //MessageBox.Show(ex.ToString());
                     }
                 }
             }

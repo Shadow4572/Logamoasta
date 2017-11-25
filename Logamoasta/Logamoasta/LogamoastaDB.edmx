@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LogamoastaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Lagerbestand">
+          <Key>
+            <PropertyRef Name="ArtikelNr" />
+          </Key>
+          <Property Name="ArtikelNr" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="20" />
+          <Property Name="Einkaufspreis" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Verkaufspreis" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Anzahl" Type="int" />
+        </EntityType>
+        <EntityType Name="Lagerverlauf">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtikelNr" Type="int" Nullable="false" />
+          <Property Name="Bezeichnung" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Einkaufspreis" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Verkaufspreis" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Anzahl" Type="int" Nullable="false" />
+          <Property Name="Benutzer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mitarbeiter">
+          <Key>
+            <PropertyRef Name="BID" />
+          </Key>
+          <Property Name="BID" Type="int" Nullable="false" />
+          <Property Name="Benutzername" Type="varchar" MaxLength="20" />
+          <Property Name="Passwort" Type="varchar" MaxLength="20" />
+          <Property Name="Gruppe" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="LogamoastaModelStoreContainer">
+          <EntitySet Name="Lagerbestand" EntityType="Self.Lagerbestand" Schema="team13" store:Type="Tables" />
+          <EntitySet Name="Lagerverlauf" EntityType="Self.Lagerverlauf" Schema="team13" store:Type="Tables" />
+          <EntitySet Name="Mitarbeiter" EntityType="Self.Mitarbeiter" Schema="team13" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogamoastaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Lagerbestand">
+          <Key>
+            <PropertyRef Name="ArtikelNr" />
+          </Key>
+          <Property Name="ArtikelNr" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Einkaufspreis" Type="Decimal" />
+          <Property Name="Verkaufspreis" Type="Decimal" />
+          <Property Name="Anzahl" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Lagerverlauf">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtikelNr" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Einkaufspreis" Type="Decimal" Nullable="false" />
+          <Property Name="Verkaufspreis" Type="Decimal" Nullable="false" />
+          <Property Name="Anzahl" Type="Int32" Nullable="false" />
+          <Property Name="Benutzer" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mitarbeiter">
+          <Key>
+            <PropertyRef Name="BID" />
+          </Key>
+          <Property Name="BID" Type="Int32" Nullable="false" />
+          <Property Name="Benutzername" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Passwort" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gruppe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LogamoastaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lagerbestand" EntityType="Self.Lagerbestand" />
+          <EntitySet Name="Lagerverlauf" EntityType="Self.Lagerverlauf" />
+          <EntitySet Name="Mitarbeiter" EntityType="Self.Mitarbeiter" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LogamoastaModelStoreContainer" CdmEntityContainer="LogamoastaEntities">
+          <EntitySetMapping Name="Lagerbestand">
+            <EntityTypeMapping TypeName="LogamoastaModel.Lagerbestand">
+              <MappingFragment StoreEntitySet="Lagerbestand">
+                <ScalarProperty Name="ArtikelNr" ColumnName="ArtikelNr" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Einkaufspreis" ColumnName="Einkaufspreis" />
+                <ScalarProperty Name="Verkaufspreis" ColumnName="Verkaufspreis" />
+                <ScalarProperty Name="Anzahl" ColumnName="Anzahl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lagerverlauf">
+            <EntityTypeMapping TypeName="LogamoastaModel.Lagerverlauf">
+              <MappingFragment StoreEntitySet="Lagerverlauf">
+                <ScalarProperty Name="VID" ColumnName="VID" />
+                <ScalarProperty Name="ArtikelNr" ColumnName="ArtikelNr" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+                <ScalarProperty Name="Einkaufspreis" ColumnName="Einkaufspreis" />
+                <ScalarProperty Name="Verkaufspreis" ColumnName="Verkaufspreis" />
+                <ScalarProperty Name="Anzahl" ColumnName="Anzahl" />
+                <ScalarProperty Name="Benutzer" ColumnName="Benutzer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mitarbeiter">
+            <EntityTypeMapping TypeName="LogamoastaModel.Mitarbeiter">
+              <MappingFragment StoreEntitySet="Mitarbeiter">
+                <ScalarProperty Name="BID" ColumnName="BID" />
+                <ScalarProperty Name="Benutzername" ColumnName="Benutzername" />
+                <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+                <ScalarProperty Name="Gruppe" ColumnName="Gruppe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

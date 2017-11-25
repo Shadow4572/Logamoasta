@@ -20,7 +20,7 @@ namespace Logamoasta
         }
 
         #region Variables Alex smells
-        public static MySqlConnection con = new MySqlConnection("server=eduweb.kb.local;uid=team13;password=T3amO13;database=team13;allowuservariables=True;persistsecurityinfo=True;port=3306;");
+        public static MySqlConnection con = new MySqlConnection("server=web.hak-kitz.at;uid=team13;password=T3amO13;database=team13;allowuservariables=True;persistsecurityinfo=True;port=3306;");
         public static string group;
         #endregion
 
@@ -77,7 +77,7 @@ namespace Logamoasta
             }
             else
             {
-                MessageBox.Show("Keine Anmeldung möglich! Falschen Benutzernamen oder falsches Passwort eingegeben.");
+                MessageBox.Show("Keine Anmeldung möglich! Falschen Benutzernamen oder falsches Passwort eingegeben.", "Fehler beim Anmelden", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -49,8 +49,10 @@
             this.cmb_bezeichnung = new System.Windows.Forms.ComboBox();
             this.cmb_ekpreis = new System.Windows.Forms.ComboBox();
             this.cmb_vkpreis = new System.Windows.Forms.ComboBox();
+            this.dat_lagerbestand = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.num_anzahl)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dat_lagerbestand)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_lagerbestand
@@ -291,12 +293,24 @@
             this.cmb_vkpreis.TabIndex = 28;
             this.cmb_vkpreis.Visible = false;
             // 
+            // dat_lagerbestand
+            // 
+            this.dat_lagerbestand.AllowUserToAddRows = false;
+            this.dat_lagerbestand.AllowUserToDeleteRows = false;
+            this.dat_lagerbestand.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dat_lagerbestand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dat_lagerbestand.Location = new System.Drawing.Point(12, 261);
+            this.dat_lagerbestand.Name = "dat_lagerbestand";
+            this.dat_lagerbestand.Size = new System.Drawing.Size(683, 264);
+            this.dat_lagerbestand.TabIndex = 29;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(707, 580);
+            this.Controls.Add(this.dat_lagerbestand);
             this.Controls.Add(this.cmb_vkpreis);
             this.Controls.Add(this.cmb_ekpreis);
             this.Controls.Add(this.cmb_bezeichnung);
@@ -327,6 +341,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_anzahl)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dat_lagerbestand)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,5 +369,6 @@
         private System.Windows.Forms.ComboBox cmb_bezeichnung;
         private System.Windows.Forms.ComboBox cmb_ekpreis;
         private System.Windows.Forms.ComboBox cmb_vkpreis;
+        private System.Windows.Forms.DataGridView dat_lagerbestand;
     }
 }
