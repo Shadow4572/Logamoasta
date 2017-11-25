@@ -17,6 +17,11 @@ namespace Logamoasta
             InitializeComponent();
         }
 
+        #region Variables
+        public string Connectionstring;
+        LogamoastaEntities entity = new LogamoastaEntities();
+        #endregion
+
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -27,6 +32,11 @@ namespace Logamoasta
         private void Form5_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            entity.Database.Connection.ConnectionString = Connectionstring;
         }
     }
 }

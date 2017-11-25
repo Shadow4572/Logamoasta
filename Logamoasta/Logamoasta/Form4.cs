@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace Logamoasta
@@ -18,6 +17,11 @@ namespace Logamoasta
         {
             InitializeComponent();
         }
+
+        #region Variables
+        public string Connectionstring;
+        LogamoastaEntities entity = new LogamoastaEntities();
+        #endregion
 
         private void Form4_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -255,7 +259,7 @@ namespace Logamoasta
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            mitarbeiter_lst.Items.Clear();
+            /*mitarbeiter_lst.Items.Clear();
 
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Mitarbeiter", Form1.con);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -268,7 +272,9 @@ namespace Logamoasta
                     mitarbeiter_lst.Items.Add(reader.GetValue(0).ToString() + "\t" + reader.GetValue(1).ToString() + "\t" + reader.GetValue(3).ToString());
                 }
             }
-            reader.Close();
+            reader.Close();*/
+
+            entity.Database.Connection.ConnectionString = Connectionstring;
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
@@ -287,7 +293,7 @@ namespace Logamoasta
                         else
                         {   
                             
-                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO Mitarbeiter (Benutzername, Gruppe, Passwort) VALUES ('" + txt_benutzername.Text + "', '" + cmb_gruppe.Text + "', '" + txt_passwort.Text + "')", Form1.con);
+                            /*MySqlCommand cmd2 = new MySqlCommand("INSERT INTO Mitarbeiter (Benutzername, Gruppe, Passwort) VALUES ('" + txt_benutzername.Text + "', '" + cmb_gruppe.Text + "', '" + txt_passwort.Text + "')", Form1.con);
                             MySqlDataReader reader2 = cmd2.ExecuteReader();
                             List<string> Bezeichnungen = new List<string>();
                             if (reader2.HasRows)
@@ -307,7 +313,7 @@ namespace Logamoasta
                             MessageBox.Show("Passt");
                             cmd2.ExecuteNonQuery();
                             
-                        }
+                        }*/
                     }
 
                     

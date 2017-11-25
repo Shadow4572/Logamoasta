@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace Logamoasta
@@ -19,8 +18,11 @@ namespace Logamoasta
             InitializeComponent();
         }
 
+        #region Variables
         //public int index;
+        public string Connectionstring;
         LogamoastaEntities entity = new LogamoastaEntities();
+        #endregion
 
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
@@ -107,6 +109,8 @@ namespace Logamoasta
                 }
             }
             reader.Close();*/
+
+            entity.Database.Connection.ConnectionString = Connectionstring;
 
             LoadData();
         }

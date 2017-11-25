@@ -35,6 +35,7 @@
             this.txt_passwort = new System.Windows.Forms.TextBox();
             this.lbl_passwort = new System.Windows.Forms.Label();
             this.btn_anmelden = new System.Windows.Forms.Button();
+            this.lbl_connection = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_benutzername
@@ -100,12 +101,24 @@
             this.btn_anmelden.UseVisualStyleBackColor = true;
             this.btn_anmelden.Click += new System.EventHandler(this.btn_anmelden_Click);
             // 
+            // lbl_connection
+            // 
+            this.lbl_connection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_connection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(237)))), ((int)(((byte)(1)))));
+            this.lbl_connection.Location = new System.Drawing.Point(12, 127);
+            this.lbl_connection.Name = "lbl_connection";
+            this.lbl_connection.Size = new System.Drawing.Size(349, 20);
+            this.lbl_connection.TabIndex = 6;
+            this.lbl_connection.Text = "Connection";
+            this.lbl_connection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(475, 162);
+            this.Controls.Add(this.lbl_connection);
             this.Controls.Add(this.btn_anmelden);
             this.Controls.Add(this.txt_passwort);
             this.Controls.Add(this.lbl_passwort);
@@ -134,6 +147,7 @@
         private System.Windows.Forms.TextBox txt_passwort;
         private System.Windows.Forms.Label lbl_passwort;
         private System.Windows.Forms.Button btn_anmelden;
+        private System.Windows.Forms.Label lbl_connection;
     }
 }
 

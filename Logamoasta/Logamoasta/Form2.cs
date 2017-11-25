@@ -17,6 +17,9 @@ namespace Logamoasta
             InitializeComponent();
         }
 
+        public string Connectionstring;
+        LogamoastaEntities entity = new LogamoastaEntities();
+
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
@@ -32,6 +35,7 @@ namespace Logamoasta
         private void btn_lagerbestand_Click(object sender, EventArgs e)
         {
             Form3 f3 = new Form3();
+            f3.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
             f3.ShowDialog();
         }
@@ -46,11 +50,14 @@ namespace Logamoasta
             {
                 btn_mitarbeiter.Visible = false;
             }
+
+            entity.Database.Connection.ConnectionString = Connectionstring;
         }
 
         private void btn_mitarbeiter_Click(object sender, EventArgs e)
         {
             Form4 f4 = new Form4();
+            f4.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
             f4.ShowDialog();
         }
@@ -58,6 +65,7 @@ namespace Logamoasta
         private void btn_lagerverlauf_Click(object sender, EventArgs e)
         {
             Form5 f5 = new Form5();
+            f5.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
             f5.ShowDialog();
         }
