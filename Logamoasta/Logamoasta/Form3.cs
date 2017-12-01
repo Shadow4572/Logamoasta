@@ -120,7 +120,7 @@ namespace Logamoasta
             var lagerbestandQuery = from Lagerbestand in entity.Lagerbestand select Lagerbestand;
 
             List<Lagerbestand> lagerbestandList = lagerbestandQuery.ToList();
-
+            
             dat_lagerbestand.DataSource = lagerbestandList;
         }
 
@@ -196,16 +196,7 @@ namespace Logamoasta
 
                                 entity.Lagerbestand.Add(bestand);
 
-                                try
-                                {
-                                    entity.SaveChanges();
-                                }
-                                catch (Exception)
-                                {
-
-                                    throw;
-                                }
-
+                                entity.SaveChanges();
                                 LoadData();
 
                                 /*MySqlDataReader reader3 = cmd.ExecuteReader();

@@ -44,7 +44,7 @@ namespace Logamoasta
         {
             foreach (Mitarbeiter ma in entity.Mitarbeiter)
             {
-                if (ma.Benutzername == txt_benutzername.Text && ma.Passwort == txt_passwort.Text)
+                if (ma.Benutzername == txt_benutzername.Text && PasswordHash.Verify(txt_passwort.Text, ma.Passwort))
                 {
                     group = ma.Gruppe;
                     return true;

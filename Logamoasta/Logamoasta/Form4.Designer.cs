@@ -46,8 +46,9 @@
             this.cmb_bid = new System.Windows.Forms.ComboBox();
             this.cmb_benutzername = new System.Windows.Forms.ComboBox();
             this.cmb_gruppe = new System.Windows.Forms.ComboBox();
-            this.mitarbeiter_lst = new System.Windows.Forms.ListBox();
+            this.dat_mitarbeiter = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dat_mitarbeiter)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -240,19 +241,14 @@
             this.cmb_gruppe.TabIndex = 50;
             this.cmb_gruppe.Visible = false;
             // 
-            // mitarbeiter_lst
+            // dat_mitarbeiter
             // 
-            this.mitarbeiter_lst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
-            this.mitarbeiter_lst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mitarbeiter_lst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mitarbeiter_lst.FormattingEnabled = true;
-            this.mitarbeiter_lst.ItemHeight = 20;
-            this.mitarbeiter_lst.Items.AddRange(new object[] {
-            "BID\tBenutzername\tGruppe"});
-            this.mitarbeiter_lst.Location = new System.Drawing.Point(194, 265);
-            this.mitarbeiter_lst.Name = "mitarbeiter_lst";
-            this.mitarbeiter_lst.Size = new System.Drawing.Size(319, 280);
-            this.mitarbeiter_lst.TabIndex = 52;
+            this.dat_mitarbeiter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dat_mitarbeiter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dat_mitarbeiter.Location = new System.Drawing.Point(12, 281);
+            this.dat_mitarbeiter.Name = "dat_mitarbeiter";
+            this.dat_mitarbeiter.Size = new System.Drawing.Size(683, 251);
+            this.dat_mitarbeiter.TabIndex = 51;
             // 
             // Form4
             // 
@@ -260,7 +256,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(707, 580);
-            this.Controls.Add(this.mitarbeiter_lst);
+            this.Controls.Add(this.dat_mitarbeiter);
             this.Controls.Add(this.cmb_gruppe);
             this.Controls.Add(this.cmb_benutzername);
             this.Controls.Add(this.cmb_bid);
@@ -285,6 +281,7 @@
             this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dat_mitarbeiter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +305,6 @@
         private System.Windows.Forms.ComboBox cmb_bid;
         private System.Windows.Forms.ComboBox cmb_benutzername;
         private System.Windows.Forms.ComboBox cmb_gruppe;
-        private System.Windows.Forms.ListBox mitarbeiter_lst;
+        private System.Windows.Forms.DataGridView dat_mitarbeiter;
     }
 }

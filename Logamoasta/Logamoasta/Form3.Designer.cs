@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.lbl_lagerbestand = new System.Windows.Forms.Label();
-            this.lst_lagerbestand = new System.Windows.Forms.ListBox();
             this.lbl_artikelnr = new System.Windows.Forms.Label();
             this.lbl_bezeichnung = new System.Windows.Forms.Label();
             this.txt_ekpreis = new System.Windows.Forms.TextBox();
@@ -65,23 +64,6 @@
             this.lbl_lagerbestand.TabIndex = 4;
             this.lbl_lagerbestand.Text = "Lagerbestand";
             this.lbl_lagerbestand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lst_lagerbestand
-            // 
-            this.lst_lagerbestand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(54)))));
-            this.lst_lagerbestand.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lst_lagerbestand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lst_lagerbestand.FormattingEnabled = true;
-            this.lst_lagerbestand.ItemHeight = 24;
-            this.lst_lagerbestand.Items.AddRange(new object[] {
-            "Artikelnr\tBezeichnung\tEinkaufspreis\tVerkaufspreis\tAnzahl",
-            "1\tHolzschuhe\t49.99\t\t99.99\t\t19",
-            "2\tBlumentopferde\t9.99\t\t29,99\t\t34",
-            "3\tGustaf Bier\t-9,99\t\t-3,99\t\t517"});
-            this.lst_lagerbestand.Location = new System.Drawing.Point(12, 261);
-            this.lst_lagerbestand.Name = "lst_lagerbestand";
-            this.lst_lagerbestand.Size = new System.Drawing.Size(683, 264);
-            this.lst_lagerbestand.TabIndex = 5;
             // 
             // lbl_artikelnr
             // 
@@ -327,7 +309,6 @@
             this.Controls.Add(this.lbl_ekpreis);
             this.Controls.Add(this.lbl_bezeichnung);
             this.Controls.Add(this.lbl_artikelnr);
-            this.Controls.Add(this.lst_lagerbestand);
             this.Controls.Add(this.lbl_lagerbestand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -350,7 +331,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_lagerbestand;
-        private System.Windows.Forms.ListBox lst_lagerbestand;
         private System.Windows.Forms.Label lbl_artikelnr;
         private System.Windows.Forms.Label lbl_bezeichnung;
         private System.Windows.Forms.TextBox txt_ekpreis;

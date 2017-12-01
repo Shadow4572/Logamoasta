@@ -74,7 +74,7 @@
           </Key>
           <Property Name="BID" Type="Int32" Nullable="false" />
           <Property Name="Benutzername" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Passwort" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Passwort" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="Gruppe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="LogamoastaEntities" annotation:LazyLoadingEnabled="true">

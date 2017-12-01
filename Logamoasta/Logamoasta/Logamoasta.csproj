@@ -111,6 +111,7 @@
     <Compile Include="Mitarbeiter.cs">
       <DependentUpon>LogamoastaDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
