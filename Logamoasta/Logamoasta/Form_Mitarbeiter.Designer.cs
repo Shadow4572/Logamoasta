@@ -1,6 +1,6 @@
 ﻿namespace Logamoasta
 {
-    partial class Form4
+    partial class Form_Mitarbeiter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Mitarbeiter));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtn_masuchen = new System.Windows.Forms.RadioButton();
             this.rbtn_maloeschen = new System.Windows.Forms.RadioButton();
@@ -277,8 +277,7 @@
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mitarbeiter";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
-            this.Load += new System.EventHandler(this.Form4_Load);
+            this.Load += new System.EventHandler(this.Form_Mitarbeiter_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dat_mitarbeiter)).EndInit();

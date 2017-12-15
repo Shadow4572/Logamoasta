@@ -1,6 +1,6 @@
 ﻿namespace Logamoasta
 {
-    partial class Form5
+    partial class Form_Lagerverlauf
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Lagerverlauf));
             this.btn_zurueck = new System.Windows.Forms.Button();
             this.lbl_ekvk = new System.Windows.Forms.Label();
             this.lbl_vkpreis = new System.Windows.Forms.Label();
@@ -266,8 +266,7 @@
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lagerverlauf";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form5_FormClosed);
-            this.Load += new System.EventHandler(this.Form5_Load);
+            this.Load += new System.EventHandler(this.Form_Lagerverlauf_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Logamoasta
 {
-    public partial class Form5 : Form
+    public partial class Form_Lagerverlauf : Form
     {
-        public Form5()
+        public Form_Lagerverlauf()
         {
             InitializeComponent();
         }
@@ -24,17 +24,10 @@ namespace Logamoasta
 
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            Hide();
-            f2.ShowDialog();
+            this.Close();
         }
 
-        private void Form5_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
+        private void Form_Lagerverlauf_Load(object sender, EventArgs e)
         {
             entity.Database.Connection.ConnectionString = Connectionstring;
         }

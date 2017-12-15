@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Logamoasta
 {
-    public partial class Form3 : Form
+    public partial class Form_Lagerbestand : Form
     {
-        public Form3()
+        public Form_Lagerbestand()
         {
             InitializeComponent();
         }
@@ -26,9 +26,7 @@ namespace Logamoasta
 
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            Hide();
-            f2.ShowDialog();
+            this.Close();
         }
 
         private void rbtn_neuerartikel_CheckedChanged(object sender, EventArgs e)
@@ -87,14 +85,9 @@ namespace Logamoasta
             }
         }
 
-        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         //MySqlCommand cmd = new MySqlCommand("SELECT * FROM Lagerbestand", Form1.con);
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void Form_Lagerbestand_Load(object sender, EventArgs e)
         {
             /*lst_lagerbestand.Items.Clear();
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Logamoasta
 {
-    public partial class Form1 : Form
+    public partial class Form_Login : Form
     {
-        public Form1()
+        public Form_Login()
         {
             InitializeComponent();
         }
@@ -29,10 +29,11 @@ namespace Logamoasta
 
             if(CheckUser())
             {
-                Form2 f2 = new Form2();
-                f2.Connectionstring = entity.Database.Connection.ConnectionString;
+                Form_Menu f_menu = new Form_Menu();
+                f_menu.Connectionstring = entity.Database.Connection.ConnectionString;
                 Hide();
-                f2.ShowDialog();
+                f_menu.ShowDialog();
+                Show();
             }
             else
             {
@@ -53,12 +54,12 @@ namespace Logamoasta
             return false;
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form_Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form_Login_Load(object sender, EventArgs e)
         {
             //Checks if connection to the DB is possible
             IDbConnection con = new LogamoastaEntities().Database.Connection;

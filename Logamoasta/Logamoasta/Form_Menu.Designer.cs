@@ -1,6 +1,6 @@
 ﻿namespace Logamoasta
 {
-    partial class Form2
+    partial class Form_Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Menu));
             this.lbl_hauptmenue = new System.Windows.Forms.Label();
             this.btn_lagerbestand = new System.Windows.Forms.Button();
             this.btn_lagerverlauf = new System.Windows.Forms.Button();
@@ -117,8 +117,7 @@
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hauptmenü";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.Form_Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

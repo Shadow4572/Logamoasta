@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Logamoasta
 {
-    public partial class Form4 : Form
+    public partial class Form_Mitarbeiter : Form
     {
-        public Form4()
+        public Form_Mitarbeiter()
         {
             InitializeComponent();
         }
@@ -22,11 +22,6 @@ namespace Logamoasta
         public string Connectionstring;
         LogamoastaEntities entity = new LogamoastaEntities();
         #endregion
-
-        private void Form4_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
 
         private void rbtn_maanlegen_CheckedChanged(object sender, EventArgs e)
         {
@@ -252,9 +247,7 @@ namespace Logamoasta
 
         private void btn_zurueck_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            Hide();
-            f2.ShowDialog();
+            this.Close();
         }
 
         private void LoadData()
@@ -290,7 +283,7 @@ namespace Logamoasta
             return false;
         }
 
-        private void Form4_Load(object sender, EventArgs e)
+        private void Form_Mitarbeiter_Load(object sender, EventArgs e)
         {
             /*mitarbeiter_lst.Items.Clear();
 

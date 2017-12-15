@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Logamoasta
 {
-    public partial class Form2 : Form
+    public partial class Form_Menu : Form
     {
-        public Form2()
+        public Form_Menu()
         {
             InitializeComponent();
         }
@@ -20,29 +20,23 @@ namespace Logamoasta
         public string Connectionstring;
         LogamoastaEntities entity = new LogamoastaEntities();
 
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void btn_abmelden_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            Hide();
-            f1.ShowDialog();
+            this.Close();
         }
 
         private void btn_lagerbestand_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3();
-            f3.Connectionstring = entity.Database.Connection.ConnectionString;
+            Form_Lagerbestand f_bestand = new Form_Lagerbestand();
+            f_bestand.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
-            f3.ShowDialog();
+            f_bestand.ShowDialog();
+            Show();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form_Menu_Load(object sender, EventArgs e)
         {
-            if(Form1.group.Equals("Moasta"))
+            if(Form_Login.group.Equals("Moasta"))
             {
                 btn_mitarbeiter.Visible = true;
             }
@@ -56,18 +50,20 @@ namespace Logamoasta
 
         private void btn_mitarbeiter_Click(object sender, EventArgs e)
         {
-            Form4 f4 = new Form4();
-            f4.Connectionstring = entity.Database.Connection.ConnectionString;
+            Form_Mitarbeiter f_ma = new Form_Mitarbeiter();
+            f_ma.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
-            f4.ShowDialog();
+            f_ma.ShowDialog();
+            Show();
         }
 
         private void btn_lagerverlauf_Click(object sender, EventArgs e)
         {
-            Form5 f5 = new Form5();
-            f5.Connectionstring = entity.Database.Connection.ConnectionString;
+            Form_Lagerverlauf f_verlauf = new Form_Lagerverlauf();
+            f_verlauf.Connectionstring = entity.Database.Connection.ConnectionString;
             Hide();
-            f5.ShowDialog();
+            f_verlauf.ShowDialog();
+            Show();
         }
     }
 }

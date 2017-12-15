@@ -1,6 +1,6 @@
 ﻿namespace Logamoasta
 {
-    partial class Form3
+    partial class Form_Lagerbestand
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Lagerbestand));
             this.lbl_lagerbestand = new System.Windows.Forms.Label();
             this.lbl_artikelnr = new System.Windows.Forms.Label();
             this.lbl_bezeichnung = new System.Windows.Forms.Label();
@@ -317,8 +317,7 @@
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lagerbestand";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Load += new System.EventHandler(this.Form_Lagerbestand_Load);
             ((System.ComponentModel.ISupportInitialize)(this.num_anzahl)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
